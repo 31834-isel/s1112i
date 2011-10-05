@@ -1,0 +1,171 @@
+﻿<!doctype html>
+<html lang="pt-pt">
+
+	<!-- Metadados do documento -->
+	<head>
+	
+		<title>O título</title>
+		
+		<!-- link para recursos externos que "aumentam" o documento -->
+		<link rel="stylesheet" href="style.css" />
+		
+		<!-- "hyperlinks" - recursos relacionados com esta representação" -->
+		<link rel="alternate" href="html5.en.html" hreflang="en" type="text/html" title="English" />
+		<link rel="next" href="next.html" />
+		
+		<!-- outro tipo de metadados -->
+		<meta name="author" content="Pedro Félix" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		
+		<!-- informação de estilo definida no próprio documento ("embedded") -->		
+		<style type="text/css">
+			p {color:blue}
+			code {background-color:darkgray; color:yellow}
+			span.myestr {font-style:italic}
+			th {font-style:italic}
+		</style>
+
+		<!-- script externo  -->
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js"></script>
+		
+		<!-- script "embedded" -->
+		<script type="text/javascript">						
+			$(function(){
+				console.log("init");
+				var now = new Date();
+				document.title += " ["+now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()+"]";				
+				$("form").bind("input", function(){
+					console.log("input changed");
+					$("#output").val($("#name").val());
+				});
+			});
+		</script>
+	</head>
+	
+	<!-- Conteúdo do documento -->
+	<body>
+		<!-- Cabaçalho de primeiro nível -->
+		<h1 id="start">Exemplo de HTML</h1>
+		
+		
+		<a href="#end" rel="end-rel">Fim</a>
+		
+		<!-- Parágrafo -->
+		<h2>Caracterização semântica do texto</h2>
+		<ul>
+			<li><em>Ênfase</em></li>
+			<li><s>Errado</s></li>
+			<li><cite>Referência</cite></li>
+			<li><q>Citação</q></li>
+			<li><code>código</code></li>
+			<li><var>y = 2x + 1</var></li>
+			<li><samp>Excerto da saída</samp></li>
+			<li><kbd>Excerto da entrada</kbd></li>
+			<li>Palavra <b>chave</b></li>
+			<li><mark>Destacado</mark></li>
+			<li><var>x<sup>2</sup></var></li>
+			<li><var>c<sub>n-1</sub></var>
+			
+			<li><span class="myestr">estrangeirismo</span></li>
+		</ul>		
+		
+		<h2>Formulários</h2>
+		
+		<form method="post" action="http://www.google.com/">
+			<p><label>Input 1<input type="text" name="in1"/></label></p>
+			<p><label>Input 2<input type="text" name="in2"/></label></p>
+			<p><label>Input 3<input type="password" name="in3"/></label></p>
+			<p><label>Submeter<input type="submit" value="aqui"/></label></p>
+		</form>
+		
+		
+		
+		<form action="http://www.google.com" method="get">
+			<fieldset>
+				<legend>Dados pessoais</legend>
+				<p><label>Nome<input type="text" name="given-name" id="name" required/></label></p>
+				<p><label>Data de nascimento<input type="time" name="birth-date"/></label></p>
+				<p><label>Correio electrónico<input type="email" name="email"/></label></p>
+				<p><label for="input-pw" >Palavra chave</label><input type="password" name="password" id="input-pw"/></p>				
+			</fieldset>
+			
+			<fieldset>
+				<legend>Regime</legend>				
+				<ul>
+					<li>Diurno <input type="radio" name="regime" value="day" checked />
+					<li>Nocturno <input type="radio" name="regime" value="night" />
+				</ul>
+			</fieldset>
+			
+			<p>Múltiplas opções:</p>
+			<ul>
+				<li> Opção 1 <input type="checkbox" name="option" value="1" />
+				<li> Opção 1 <input type="checkbox" name="option" value="2" />
+				<li> Opção 1 <input type="checkbox" name="option" value="3" />
+			</ul>			
+			<select name="class">
+				<optgroup label="Turmas diurnas">
+					<option value="li51d">LI51D</option>
+					<option value="li152d">LI52D</option>
+				<optgroup label="Turmas nocturnas">
+					<option value="li51n" selected>LI51N</option>				
+			</select>
+			<p><label>Curso: <input type="text" name="course" list="course-names"/></label>
+			<datalist id="course-names">
+				<option value="LEIC">
+				<option value="MEIC">
+				<option value="LEETC">
+			</datalist>
+			<p><meter min=0 max=10 value=9>Exemplo de "meter"</meter></p>		
+			
+			<!--<keygen name="key" />-->
+								
+			<p>Texto: <output name="calc" id="output">abc</output></p>
+			
+			<p><input type="submit" value="Submeter" /></p>
+		</form>
+		
+		<h2>Figuras</h2>
+		<figure>
+			<img 
+			  src = "http://blogs.sitepoint.com/wp-content/uploads/2010/12/PeriodicTables_thumb.png" 
+			  alt="HTML 5 periodic table" />
+			<figcaption>Tabela periódica dos elementos HTML 5 </figcaption>
+		</figure>
+				
+			
+		<h2>Tabelas</h2>		
+		<figure>
+			
+			<table>
+				<colgroup class="headcol"><col></colgroup>
+				<colgroup><col><col></colgroup>
+				
+				<thead>
+					<tr>
+						<th>Col 1</th> <th>Col 2</th> <th>Col 3</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td> Cell 1 </td> <td> Cell 2 </td> <td> Cell 3 </td>
+					</tr>
+					<tr>
+						<td> Cell 4 </td> <td> Cell 5 </td> <td> Cell 6 </td>
+					</tr>					
+				</tbody>
+				
+				<tfoot>
+				</tfoot>		
+				
+			</table>
+			<figcaption>Exemplo de tabela</figcaption>
+		</figure>
+		
+		<a href="#start" rel="begin" id="end">Início</a>
+		
+		<a href="http://www.deetc.isel.pt" rel="ADEETC" >ADEETC</a>
+		
+	</body>
+</html>
